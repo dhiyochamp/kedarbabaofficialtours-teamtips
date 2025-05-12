@@ -1,175 +1,330 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi-IN">
 <head>
     <meta charset="UTF-8">
-    <title>Kedarbaba Official Tours - Ultimate BDE Training Masterclass</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Ultimate BDE Training Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#3B82F6',
+                        'brand-green': '#10B981',
+                        'brand-purple': '#8B5CF6',
+                        'brand-orange': '#F97316',
+                        'brand-pink': '#EC4899'
+                    },
+                    boxShadow: {
+                        'custom': '0 10px 25px -10px rgba(0, 0, 0, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --primary: #44b59c;
-            --primary-light: #6ac7b3;
-            --primary-lighter: #c5ebe2;
-            --primary-dark: #3da38d;
-            --logo-gold: #f9bc4a;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--primary-lighter);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f6f8f9 0%, #e5ebee 100%);
         }
-        .training-section {
-            display: none;
+        .skill-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .active-section {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out;
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .progress-bar {
+            transition: width 1s ease-in-out;
         }
-        .pro-tip {
-            background-color: var(--primary-lighter);
-            border-left: 5px solid var(--logo-gold);
-            padding: 10px;
-            margin: 10px 0;
-        }
-        .challenge-box {
-            background-color: var(--primary-lighter);
-            border-left: 5px solid var(--primary);
-            padding: 10px;
-            margin: 10px 0;
-        }
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-        }
-        .nav-button {
-            background-color: var(--primary-light);
-            color: white;
-            transition: all 0.3s ease;
-        }
-        .nav-button:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
+        .active-nav-btn {
+            background-color: #3B82F6 !important;
+            transform: scale(1.05);
         }
     </style>
 </head>
-<body class="bg-gray-100">
+<body class="text-gray-800">
     <div class="container mx-auto px-4 py-8">
-        <div class="bg-white shadow-2xl rounded-2xl overflow-hidden border-t-4" style="border-top-color: var(--primary);">
-            <div class="bg-gradient-to-r from-primary to-primary-light text-white p-6">
-                <h1 class="text-4xl font-bold flex items-center">
-                    <span style="color: var(--logo-gold);">🏔️</span> 
-                    Kedarbaba Official Tours: BDE Transformation Masterclass
-                </h1>
-                <p class="text-xl mt-2 text-primary-lighter">Unlock Your Sales Superpowers!</p>
+        <!-- Header Section -->
+        <header class="text-center mb-12 animate__animated animate__fadeIn">
+            <div class="bg-white rounded-xl shadow-custom p-6">
+                <h1 class="text-4xl font-bold text-brand-blue mb-4">🚀 Ultimate BDE Training Platform</h1>
+                <p class="text-xl text-gray-600">Apne Sales Game Ko Next Level Pe Le Jaao!</p>
             </div>
+        </header>
 
-            <div class="p-6">
-                <div class="mb-6 flex flex-wrap gap-2">
-                    <button onclick="showSection('intro')" class="px-4 py-2 nav-button rounded-full">Intro Dekho</button>
-                    <button onclick="showSection('sales-strategy')" class="px-4 py-2 nav-button rounded-full">Sales Strategy</button>
-                    <button onclick="showSection('lead-management')" class="px-4 py-2 nav-button rounded-full">Lead Management</button>
-                    <button onclick="showSection('communication-mastery')" class="px-4 py-2 nav-button rounded-full">Communication Mastery</button>
-                    <button onclick="showSection('advanced-techniques')" class="px-4 py-2 nav-button rounded-full">Advanced Techniques</button>
-                </div>
+        <!-- Navigation -->
+        <nav class="mb-8">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button data-section="mindset" class="nav-btn bg-brand-blue text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">
+                    Mindset 🧠
+                </button>
+                <button data-section="communication" class="nav-btn bg-brand-green text-white px-4 py-2 rounded-full hover:bg-green-700 transition">
+                    Communication 🗣️
+                </button>
+                <button data-section="leads" class="nav-btn bg-brand-purple text-white px-4 py-2 rounded-full hover:bg-purple-700 transition">
+                    Lead Management 💎
+                </button>
+                <button data-section="sales" class="nav-btn bg-brand-orange text-white px-4 py-2 rounded-full hover:bg-orange-700 transition">
+                    Sales Techniques 💰
+                </button>
+                <button data-section="technology" class="nav-btn bg-brand-pink text-white px-4 py-2 rounded-full hover:bg-pink-700 transition">
+                    Technology 🖥️
+                </button>
+            </div>
+        </nav>
 
-                <div id="intro" class="training-section active-section">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-primary-lighter p-6 rounded-lg shadow-md">
-                            <h2 class="text-2xl font-bold mb-4" style="color: var(--primary-dark);">🎯 BDE Ka Ultimate Mission</h2>
-                            <ul class="space-y-3">
-                                <li class="flex items-center">
-                                    <span class="mr-3 text-2xl" style="color: var(--logo-gold);">💡</span>
-                                    <span style="color: var(--primary-dark);">Lead Generation Mein Mastermind Bano</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <span class="mr-3 text-2xl" style="color: var(--logo-gold);">🤝</span>
-                                    <span style="color: var(--primary-dark);">Customer Relationships Ko Level Up Karo</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <span class="mr-3 text-2xl" style="color: var(--logo-gold);">💰</span>
-                                    <span style="color: var(--primary-dark);">Revenue Growth Ka Engine Bano</span>
-                                </li>
-                            </ul>
+        <!-- Main Content Sections -->
+        <div id="content-sections" class="space-y-8">
+            <!-- Sections will be dynamically loaded here -->
+        </div>
+
+        <!-- Performance Tracker -->
+        <section class="mt-12 bg-white rounded-xl shadow-custom p-6">
+            <h2 class="text-2xl font-semibold text-brand-blue mb-6">📊 Performance Tracker</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-bold mb-4">Skills Progress</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block mb-2">Communication Skills</label>
+                            <div class="bg-gray-200 rounded-full h-4 overflow-hidden">
+                                <div class="progress-bar bg-brand-green h-full" style="width: 75%"></div>
+                            </div>
                         </div>
-
-                        <div class="bg-primary-lighter p-6 rounded-lg shadow-md">
-                            <h2 class="text-2xl font-bold mb-4" style="color: var(--primary-dark);">💼 Key Performance Areas</h2>
-                            <div class="space-y-3">
-                                <div class="bg-white p-3 rounded shadow-sm border-l-4" style="border-left-color: var(--primary);">
-                                    <h3 class="font-semibold" style="color: var(--primary-dark);">Customer Acquisition</h3>
-                                    <p class="text-sm text-gray-600">Potential customers ko convert karna</p>
-                                </div>
-                                <div class="bg-white p-3 rounded shadow-sm border-l-4" style="border-left-color: var(--logo-gold);">
-                                    <h3 class="font-semibold" style="color: var(--primary-dark);">Sales Funnel Management</h3>
-                                    <p class="text-sm text-gray-600">Lead ko booking tak le jaana</p>
-                                </div>
-                                <div class="bg-white p-3 rounded shadow-sm border-l-4" style="border-left-color: var(--primary);">
-                                    <h3 class="font-semibold" style="color: var(--primary-dark);">Customer Delight</h3>
-                                    <p class="text-sm text-gray-600">Exceptional experience deliver karna</p>
-                                </div>
+                        <div>
+                            <label class="block mb-2">Lead Conversion</label>
+                            <div class="bg-gray-200 rounded-full h-4 overflow-hidden">
+                                <div class="progress-bar bg-brand-blue h-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block mb-2">Sales Techniques</label>
+                            <div class="bg-gray-200 rounded-full h-4 overflow-hidden">
+                                <div class="progress-bar bg-brand-purple h-full" style="width: 65%"></div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="pro-tip mt-6">
-                        <h3 class="font-bold text-lg" style="color: var(--primary-dark);">🌟 Pro Tip: Success Mindset</h3>
-                        <p style="color: var(--primary-dark);">Har challenge ko opportunity mein convert karo. Persistent raho, learning mode mein raho!</p>
-                    </div>
                 </div>
-
-                <!-- Rest of the previous content remains the same, with color modifications -->
-
-                <div id="sales-strategy" class="training-section">
-                    <h2 class="text-3xl font-bold mb-6" style="color: var(--primary-dark);">🚀 Sales Strategy: Next Level Approach</h2>
-                    
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="bg-primary-lighter p-6 rounded-lg shadow-md">
-                            <h3 class="text-xl font-semibold mb-4" style="color: var(--primary-dark);">🎣 Lead Generation Tactics</h3>
-                            <ul class="space-y-3">
-                                <li>
-                                    <strong style="color: var(--primary);">Multi-Channel Approach:</strong>
-                                    <p class="text-sm text-gray-700">Website, Social Media, Referrals, Cold Calling</p>
-                                </li>
-                                <li>
-                                    <strong style="color: var(--primary);">Digital Marketing Integration:</strong>
-                                    <p class="text-sm text-gray-700">SEO, Targeted Ads, Content Marketing</p>
-                                </li>
-                                <li>
-                                    <strong style="color: var(--primary);">Network Expansion:</strong>
-                                    <p class="text-sm text-gray-700">Partnerships, Travel Communities</p>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Similar color modifications for other sections -->
-                    </div>
+                <div>
+                    <h3 class="font-bold mb-4">Sales Performance Chart</h3>
+                    <canvas id="salesPerformanceChart"></canvas>
                 </div>
+            </div>
+        </section>
 
-                <div class="text-center mt-6">
-                    <button class="px-6 py-3 btn-primary rounded-full text-lg font-bold shadow-lg hover:shadow-xl transition duration-300">
-                        Start Your BDE Journey Now!
-                    </button>
-                </div>
+        <!-- Quick Tips Modal -->
+        <div id="quickTipsModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+            <div class="bg-white rounded-xl p-8 max-w-md w-full animate__animated animate__bounceIn">
+                <h2 class="text-2xl font-bold text-brand-orange mb-4">🌟 Quick Pro Tips</h2>
+                <ul class="space-y-3 text-gray-700">
+                    <li>✨ Har din 1% improve karo</li>
+                    <li>🤝 Relationships build karo, sales automatically aayengi</li>
+                    <li>📚 Continuously learn aur adapt karo</li>
+                    <li>💪 Rejection ko stepping stone banao</li>
+                </ul>
+                <button id="closeQuickTipsBtn" class="mt-6 bg-brand-blue text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">
+                    Close
+                </button>
             </div>
         </div>
     </div>
 
-    <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.training-section').forEach(section => {
-                section.classList.remove('active-section');
-            });
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto text-center">
+            <p class="mb-2">🚀 BDE Training Platform - Apka Ultimate Sales Companion</p>
+            <p class="text-sm text-gray-400">Success ek journey hai, destination nahi! 💪</p>
+            <button id="quickTipsBtn" class="mt-4 bg-brand-orange text-white px-4 py-2 rounded-full hover:bg-orange-700 transition">
+                Quick Tips 💡
+            </button>
+        </div>
+    </footer>
 
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active-section');
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script>
+        // Content Sections Data
+        const sections = {
+            mindset: {
+                title: "Mindset: Success Ka Pehla Mantra 🧠",
+                content: `
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="skill-card bg-blue-50 p-6 rounded-xl">
+                            <h3 class="font-bold text-xl mb-4">Positive Vibe Rakhna</h3>
+                            <ul class="space-y-2">
+                                <li>✅ Har rejection ko learning opportunity samjho</li>
+                                <li>✅ Negative thoughts ko positive mein convert karo</li>
+                                <li>✅ Growth mindset maintain karo</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card bg-green-50 p-6 rounded-xl">
+                            <h3 class="font-bold text-xl mb-4">Confidence Ka Raaz</h3>
+                            <ul class="space-y-2">
+                                <li>💪 Apne skills pe bharosa rakhna</li>
+                                <li>🧠 Continuous self-improvement</li>
+                                <li>🌟 Positive self-talk ka practice karo</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            communication: {
+                title: "Communication Mastery: Baat Karne Ka Art 🗣️",
+                content: `
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="skill-card bg-purple-50 p-6 rounded-xl">
+                            <h3 class="font-bold text-xl mb-4">Active Listening</h3>
+                            <ul class="space-y-2">
+                                <li>👂 Dusre ki baat ko dhyan se suno</li>
+                                <li>❓ Clarify questions poochho</li>
+                                <li>👀 Non-verbal cues ko samjho</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card bg-pink-50 p-6 rounded-xl">
+                            <h3 class="font-bold text-xl mb-4">Persuasive Speaking</h3>
+                            <ul class="space-y-2">
+                                <li>💬 Clear aur confident ho ke baat karo</li>
+                                <li>✅ Stories ka use karke influence karo</li>
+                                <li>⚡ Strong call to action dena mat bhoolna</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            leads: {
+                title: "Lead Management: Opportunities Ko Maximize Karo 💎",
+                content: `
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="skill-card bg-yellow-50 p-6 rounded-xl">
+                            <h3 class="font-bold text-xl mb-4">Lead Generation</h3>
+                            <ul class="space-y-2">
+                                <li>📱 Social Media ko lead generation ke liye use karo</li>
+                                <li>💻 Cold emailing and LinkedIn outreach</li>
+                                <li>🔎 Targeted market research</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card bg-teal-50 p-6 rounded-xl">
+                            <h3 class="font-bold text-xl mb-4">Lead Nurturing</h3>
+                            <ul class="space-y-2">
+                                <li>💡 Personalized communication</li>
+                                <li>⏳ Consistent follow-ups</li>
+                                <li>📈 Value-based outreach</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            sales: {
+                title: "Sales Techniques: Kaise Close Kare Deals 💰",
+                content: `
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="skill-card bg-red-50 p-6 rounded-xl">
+                            <h3 class="font-bold text-xl mb-4">Consultative Selling</h3>
+                            <ul class="space-y-2">
+                                <li>📊 Client ki needs samajh ke proposal dena</li>
+                                <li>🔍 Pain points pe focus karo</li>
+                                <li>💡 Solutions pe discussion</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card bg-indigo-50 p-6 rounded-xl">
+                            <h3 class="font-bold text-xl mb-4">Closing the Deal</h3>
+                            <ul class="space-y-2">
+                                <li>✍️ Clear contract terms</li>
+                                <li>🎯 Pressure create karne ki zarurat nahi</li>
+                                <li>🤝 Final agreement pe trust build karo</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            technology: {
+                title: "Tech Tools: BDE Ki Superpowers 🖥️",
+                content: `
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="skill-card bg-blue-50 p-6 rounded-xl">
+                            <h3 class="font-bold text-xl mb-4">CRM Systems</h3>
+                            <ul class="space-y-2">
+                                <li>📈 Salesforce ya HubSpot jese tools ka use karo</li>
+                                <li>🔄 Automated reminders aur tasks</li>
+                                <li>🧠 Real-time lead tracking</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card bg-orange-50 p-6 rounded-xl">
+                            <h3 class="font-bold text-xl mb-4">Sales Analytics</h3>
+                            <ul class="space-y-2">
+                                <li>📊 Performance metrics ko analyze karo</li>
+                                <li>📉 KPIs set karo</li>
+                                <li>📅 Data-driven decision-making</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // Function to change content
+        function changeSection(section) {
+            const content = document.getElementById('content-sections');
+            content.innerHTML = `
+                <div class="bg-white rounded-xl shadow-custom p-6">
+                    <h2 class="text-3xl font-semibold text-brand-blue mb-4">${sections[section].title}</h2>
+                    ${sections[section].content}
+                </div>
+            `;
         }
+
+        // Add event listeners to navigation buttons
+        document.querySelectorAll('.nav-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-nav-btn'));
+                button.classList.add('active-nav-btn');
+                changeSection(button.getAttribute('data-section'));
+            });
+        });
+
+        // Initialize default section
+        changeSection('mindset');
+
+        // Quick Tips Modal
+        document.getElementById('quickTipsBtn').addEventListener('click', function() {
+            document.getElementById('quickTipsModal').classList.remove('hidden');
+        });
+        document.getElementById('closeQuickTipsBtn').addEventListener('click', function() {
+            document.getElementById('quickTipsModal').classList.add('hidden');
+        });
+
+        // Sales Performance Chart
+        const ctx = document.getElementById('salesPerformanceChart').getContext('2d');
+        const salesPerformanceChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: 'Sales Performance',
+                    data: [10, 15, 12, 18, 20],
+                    backgroundColor: '#3B82F6',
+                    borderColor: '#3B82F6',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
     </script>
 </body>
 </html>
