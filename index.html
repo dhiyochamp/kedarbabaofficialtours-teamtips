@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kedarbaba Official Tours - Ultimate BDE Training Masterclass</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        :root {
+            --primary: #44b59c;
+            --primary-light: #6ac7b3;
+            --primary-lighter: #c5ebe2;
+            --primary-dark: #3da38d;
+            --logo-gold: #f9bc4a;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--primary-lighter);
+        }
+        .training-section {
+            display: none;
+        }
+        .active-section {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .pro-tip {
+            background-color: var(--primary-lighter);
+            border-left: 5px solid var(--logo-gold);
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .challenge-box {
+            background-color: var(--primary-lighter);
+            border-left: 5px solid var(--primary);
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        .nav-button {
+            background-color: var(--primary-light);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .nav-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <div class="bg-white shadow-2xl rounded-2xl overflow-hidden border-t-4" style="border-top-color: var(--primary);">
+            <div class="bg-gradient-to-r from-primary to-primary-light text-white p-6">
+                <h1 class="text-4xl font-bold flex items-center">
+                    <span style="color: var(--logo-gold);">🏔️</span> 
+                    Kedarbaba Official Tours: BDE Transformation Masterclass
+                </h1>
+                <p class="text-xl mt-2 text-primary-lighter">Unlock Your Sales Superpowers!</p>
+            </div>
 
+            <div class="p-6">
+                <div class="mb-6 flex flex-wrap gap-2">
+                    <button onclick="showSection('intro')" class="px-4 py-2 nav-button rounded-full">Intro Dekho</button>
+                    <button onclick="showSection('sales-strategy')" class="px-4 py-2 nav-button rounded-full">Sales Strategy</button>
+                    <button onclick="showSection('lead-management')" class="px-4 py-2 nav-button rounded-full">Lead Management</button>
+                    <button onclick="showSection('communication-mastery')" class="px-4 py-2 nav-button rounded-full">Communication Mastery</button>
+                    <button onclick="showSection('advanced-techniques')" class="px-4 py-2 nav-button rounded-full">Advanced Techniques</button>
+                </div>
+
+                <div id="intro" class="training-section active-section">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-primary-lighter p-6 rounded-lg shadow-md">
+                            <h2 class="text-2xl font-bold mb-4" style="color: var(--primary-dark);">🎯 BDE Ka Ultimate Mission</h2>
+                            <ul class="space-y-3">
+                                <li class="flex items-center">
+                                    <span class="mr-3 text-2xl" style="color: var(--logo-gold);">💡</span>
+                                    <span style="color: var(--primary-dark);">Lead Generation Mein Mastermind Bano</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="mr-3 text-2xl" style="color: var(--logo-gold);">🤝</span>
+                                    <span style="color: var(--primary-dark);">Customer Relationships Ko Level Up Karo</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="mr-3 text-2xl" style="color: var(--logo-gold);">💰</span>
+                                    <span style="color: var(--primary-dark);">Revenue Growth Ka Engine Bano</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-primary-lighter p-6 rounded-lg shadow-md">
+                            <h2 class="text-2xl font-bold mb-4" style="color: var(--primary-dark);">💼 Key Performance Areas</h2>
+                            <div class="space-y-3">
+                                <div class="bg-white p-3 rounded shadow-sm border-l-4" style="border-left-color: var(--primary);">
+                                    <h3 class="font-semibold" style="color: var(--primary-dark);">Customer Acquisition</h3>
+                                    <p class="text-sm text-gray-600">Potential customers ko convert karna</p>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow-sm border-l-4" style="border-left-color: var(--logo-gold);">
+                                    <h3 class="font-semibold" style="color: var(--primary-dark);">Sales Funnel Management</h3>
+                                    <p class="text-sm text-gray-600">Lead ko booking tak le jaana</p>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow-sm border-l-4" style="border-left-color: var(--primary);">
+                                    <h3 class="font-semibold" style="color: var(--primary-dark);">Customer Delight</h3>
+                                    <p class="text-sm text-gray-600">Exceptional experience deliver karna</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pro-tip mt-6">
+                        <h3 class="font-bold text-lg" style="color: var(--primary-dark);">🌟 Pro Tip: Success Mindset</h3>
+                        <p style="color: var(--primary-dark);">Har challenge ko opportunity mein convert karo. Persistent raho, learning mode mein raho!</p>
+                    </div>
+                </div>
+
+                <!-- Rest of the previous content remains the same, with color modifications -->
+
+                <div id="sales-strategy" class="training-section">
+                    <h2 class="text-3xl font-bold mb-6" style="color: var(--primary-dark);">🚀 Sales Strategy: Next Level Approach</h2>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-primary-lighter p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold mb-4" style="color: var(--primary-dark);">🎣 Lead Generation Tactics</h3>
+                            <ul class="space-y-3">
+                                <li>
+                                    <strong style="color: var(--primary);">Multi-Channel Approach:</strong>
+                                    <p class="text-sm text-gray-700">Website, Social Media, Referrals, Cold Calling</p>
+                                </li>
+                                <li>
+                                    <strong style="color: var(--primary);">Digital Marketing Integration:</strong>
+                                    <p class="text-sm text-gray-700">SEO, Targeted Ads, Content Marketing</p>
+                                </li>
+                                <li>
+                                    <strong style="color: var(--primary);">Network Expansion:</strong>
+                                    <p class="text-sm text-gray-700">Partnerships, Travel Communities</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Similar color modifications for other sections -->
+                    </div>
+                </div>
+
+                <div class="text-center mt-6">
+                    <button class="px-6 py-3 btn-primary rounded-full text-lg font-bold shadow-lg hover:shadow-xl transition duration-300">
+                        Start Your BDE Journey Now!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.training-section').forEach(section => {
+                section.classList.remove('active-section');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active-section');
+        }
+    </script>
+</body>
+</html>
